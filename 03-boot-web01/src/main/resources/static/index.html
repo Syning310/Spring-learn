@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<h1>尚亦宁</h1>
+
+测试REST风格
+<br>
+<form action="/user" method="get">
+    <input type="submit" value="REST-GET 提交">
+</form> <br>
+
+<form action="/user" method="post">
+    <input type="submit" value="REST-POST 提交">
+</form> <br>
+
+<form action="/user" method="post">
+    <input type="hidden" name="_m" value="PUT">
+    <input type="submit" value="REST-PUT 提交">
+</form> <br>
+
+<form action="/user" method="post">
+    <input type="hidden" name="_m" value="DELETE">
+    <input type="submit" value="REST-DELETE 提交">
+</form> <br>
+
+
+<a href="/cars/sell;low=34;brand=byd,yd"> /cars/sell;low=34;brand=byd </a><hr>
+
+
+<a href="/mywife/person;name=ning;age=13000/wife;name=hongyan;name=yaoji;age=28">/mywife/person;name=ning;age=13000/wife;name=hongyan;name=yaoji;age=28</a>
+
+
+<hr>
+
+<form action="/saveperson" method="post">
+    姓名:<input type="text" name="name" value="尚亦宁"><br>
+    年龄:<input type="text" name="age" value="130000"><br>
+<!--    宠物姓名:<input type="text" name="pet.name" value="小白"><br>-->
+<!--    宠物体重:<input type="text" name="pet.weight" value="55"><br>-->
+
+    宠物:<input name="pet" value="小白,55"><br>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>

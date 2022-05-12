@@ -1,0 +1,41 @@
+
+user:
+  # 单引号会将 \n 作为字符串输出  双引号会将 \n 作为换行输出
+  # 双引号不会 将 \n 的意义转义，单引号会 将 \n 的意义转义
+  username: '尚亦宁'
+  boos: true
+
+  date: 2001/04/03
+  age: 130000
+  pet:
+    name: 小白
+    weight: 40
+
+  # 数组 行内写法
+  interests: [ 拳,剑 ]
+
+  # List 和数组一样，这是分行写法
+  animal:
+    - 兔子
+    - 鹦鹉
+    - 大熊
+
+  # Map 行内写法
+  score: { english: 80,math: 90 }
+
+  # Set 和数组一样
+  salarys: [ 8000,9000,12000 ]
+
+
+  allPets:
+    sick:
+      - { name: 锅锅,weight: 19.99 }
+      - name: 大猿
+        weight: 99.98
+    health:
+      - name: 舞彤
+        weight: 36
+      - { name: 小黑,weight: 55 }
+
+
+

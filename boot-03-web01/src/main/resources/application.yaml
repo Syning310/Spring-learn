@@ -1,0 +1,13 @@
+spring:
+  mvc:
+#    static-path-pattern: /res/**
+
+
+# 手动开启 HiddenHttpMethodFilter 拦截
+    hiddenmethod:
+      filter:
+        enabled: true
+
+server:
+  servlet:
+    context-path: /ning

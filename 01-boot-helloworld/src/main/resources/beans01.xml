@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="yan" class="com.syning.entity.Person">
+        <property name="name" value="颜"></property>
+        <property name="age" value="28"></property>
+        <property name="pet">
+            <bean id="tree" class="com.syning.entity.Pet">
+                <property name="name" value="血叶"></property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

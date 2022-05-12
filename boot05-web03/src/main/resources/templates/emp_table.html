@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>emp表</title>
+
+</head>
+<body>
+
+<table id="dataTable" border="1" cellspacing="0" cellpadding="0" style="text-align: center;">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>pwd</th>
+        <th>age</th>
+        <th>sex</th>
+        <th>option</th>
+    </tr>
+    <tr th:each="emp : ${#request.getAttribute('empList')}">
+        <td th:text="${emp.id}">暂无</td>
+        <td th:text="${emp.name}">暂无</td>
+        <td th:text="${emp.pwd}">暂无</td>
+        <td th:text="${emp.age}">暂无</td>
+        <td th:text="${emp.sex}">暂无</td>
+        <td>
+            <a th:href="|/update/${emp.id}|">修改</a>
+            <a th:href="|/del/${emp.id}|">删除</a>
+        </td>
+    </tr>
+</table>
+
+<hr>
+
+<form th:action="@{/emp}" method="post">
+    name:<input type="text" name="name"><br>
+    pwd:<input type="text" name="pwd"><br>
+    age:<input type="text" name="age"><br>
+    <input type="radio" name="sex" value="男">男
+    <input type="radio" name="sex" value="女">女<br>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>

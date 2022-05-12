@@ -1,0 +1,64 @@
+spring:
+  mvc:
+    static-path-pattern: /res/**
+
+  #server:
+#  servlet:
+#    context-path: /syning
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm
+    username: root
+    password: syning
+    driver-class-name: com.mysql.jdbc.Driver
+
+    druid:
+      filter: stat,wall
+
+      stat-view-servlet:
+        enabled: true
+        login-username: syning
+        login-password: 0310
+
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+  jdbc:
+    template:
+      query-timeout: 3
+
+
+
+
+
+# 配置 Mybatis 规则
+#mybatis:
+  # 指定 Mybatis 全局配置文件的位置
+#  config-location: classpath:mybatis/mybatis-config.xml
+
+  # 指定 mapper.xml 映射文件
+#  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+
+
+
+
+
+
+
+
+
+
+

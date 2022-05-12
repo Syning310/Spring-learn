@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>消息页面</title>
+
+    <style>
+        table{
+            margin: 0 auto;
+            width: 60%;
+            margin-left: 20%;
+            text-align: center
+        }
+    </style>
+
+
+</head>
+<body>
+
+<a th:href="@{/exit}">退出</a>
+
+<span th:text="|当前登录用户:${session.currentUser.name}|"></span><br>
+
+<form th:action="@{|/message/${session.currentUser.id}|}" method="post">
+    话题：<input type="text" name="mTitle"><br>
+    内容：<input type="text" name="mContent"><br>
+    <input type="submit" value="添加话题">
+</form>
+
+
+<table id="dataTable" cellspacing="0" cellpadding="0" border="1">
+
+    <tr>
+        <th>编号</th>
+        <th>标题</th>
+        <th>日期</th>
+        <th>内容</th>
+        <th>回复</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+
+
+
+    <tr th:if="${#lists.isEmpty(#request.getAttribute('messageList'))}">
+        <td colspan="6">暂无消息</td>
+    </tr>
+
+    <tr th:unless="${#lists.isEmpty(#request.getAttribute('messageList'))}"
+        th:each="message : ${#request.getAttribute('messageList')}">
+        <td th:text="${message.mid}"></td>
+        <td><a th:text="${message.mTitle}" th:href="@{|/message/${message.mid}|}"></a></td>
+        <td th:text="${#dates.format(message.mDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td th:text="${message.mContent}"></td>
+        <td th:text="${message.mReply}"></td>
+        <td th:text="${message.mStatus}"></td>
+        <td><a @click="deleteMess" th:href="@{|/message/${message.mid}|}">删除</a></td>
+    </tr>
+
+
+
+
+</table>
+
+
+<form id="deleteForm" method="post">
+    <input type="hidden" name="_method" value="delete">
+</form>
+
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el:"#dataTable",
+        methods: {
+            deleteMess:function(event) {
+
+                // 根据 id 获取表单元素
+                var deleteForm = document.getElementById("deleteForm");
+
+                // 将触发点击事件的超链接的 href 属性赋值给表单的 action
+                deleteForm.action = event.target.href;
+
+                // 提交表单
+                deleteForm.submit();
+
+                // 取消超链接的默认行为
+                event.preventDefault();
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>尚亦宁</h1>
+
+<h2>测试REST风格：</h2>
+
+<form action="/user" method="get">
+    <input value="REST-GET 提交" type="submit"/>
+</form><br>
+
+<form action="/user" method="post">
+    <input value="REST-post 提交" type="submit"/>
+</form><br>
+
+<form action="/user" method="post">
+    <input type="hidden" name="_m" value="delete">
+    <input value="REST-delete 提交" type="submit"/>
+</form><br>
+
+<form action="/user" method="post">
+    <input type="hidden" name="_m" value="put">
+    <input value="REST-put 提交" type="submit"/>
+</form><br>
+
+<hr>
+
+测试基本注解:
+<ul>
+    <a href="/car/3/owner/ning">/car/{id}/owner/{username}</a><br>
+    <a href="/getparam?age=4000&inters=basketball&inters=sword">/getparam?age=4000&inters=basketball&inters=sword</a><br>
+
+    <form action="/save" method="post">
+        <input type="text" name="name"><br>
+        <input type="text" name="age"><br>
+        <input type="submit" value="提交">
+    </form>
+
+
+</ul>
+
+<a href="/cars/sell;low=34;brand=byb,audi,yd">@MatrixVariable(矩阵变量)</a><br>
+
+<a href="/boss/1;age=20/2;age=10">/boss/1;age=20/2;age=10 --> /boss/{bossId}/{empId}</a><br>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

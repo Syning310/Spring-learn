@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    # 指定激活的环境
+    active: test

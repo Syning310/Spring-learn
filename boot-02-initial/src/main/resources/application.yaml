@@ -1,0 +1,33 @@
+person:
+  userName: 宁
+# 字符串可以不添加单引号和双引号，如果添加了
+# 单引号会将 \n 作为字符串输出，单引号会转义 : \n 的本意是换行，但是用在单引号中，会将他转义成普通字符串
+# 双引号会将 \n 作为换行输出，双引号不会转义 : \n 用在双引号中，会进行换行，所以说双引号不会将 \n 进行转义
+  boss: true
+  birth: 2001/03/04
+  age: 4000
+#  interests: [剑, 拳]
+  interests:
+    - 剑
+    - 拳
+    - 20
+  animal: [猫, 狗]
+  score: {sword: 99, fist: 100}
+  salarys:
+    - 999.98
+    - 9988
+  pet:
+    name: 小白
+    weight: 18.8
+  allPets:
+    sick:
+      - {name: 大猿, weight: 199.99}
+      - name: 阿毛
+        weight: 32.3
+    health:
+      - {name: 锅锅, weight: 44.4}
+      - {name: 小明, weight: 32}
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>消息详情</title>
+    <style>
+        table{
+            margin: 0 auto;
+            width: 60%;
+            margin-left: 20%;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/message}">返回消息列表</a><br>
+<table cellspacing="0" cellpadding="0" border="1">
+    <tr>
+        <td th:text="|编号 ： ${message.mid}|"></td>
+        <td th:text="|标题 ： ${message.mTitle}|"></td>
+        <td th:text="|作者 ： ${auth.name}|"></td>
+    </tr>
+    <tr>
+        <td colspan="3" th:text="|内容 ： ${message.mContent}|"></td>
+    </tr>
+    <tr>
+        <td colspan="3" th:text="|回复 ： ${message.mReply}|"></td>
+    </tr>
+</table>
+
+<form th:action="@{|/message/${message.mid}|}" method="post">
+    <input type="hidden" name="_method" value="put"><br>
+    回复：<input type="text" name="reply" style="width:200px;height:80px"><br>
+    <input type="submit" value="回复">
+</form>
+
+
+</body>
+</html>
